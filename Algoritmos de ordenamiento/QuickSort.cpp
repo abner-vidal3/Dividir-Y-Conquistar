@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 void QuickSort(vector<int> & arr, int l, int r){
     if (l >= r) 
         return;
@@ -26,10 +27,11 @@ int main(){
     for (int i = 0; i < n; i++)
         cin >> arr[i];
     /*Ordenamiento*/
+    auto start = high_resolution_clock::now();
     QuickSort(arr,0,n-1);
     /*Resultados*/
-    for (int c : arr)
-        cout << c << " ";
-    cout << endl;
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start).count();
+    cout << duration << endl;
     return 0;
 }

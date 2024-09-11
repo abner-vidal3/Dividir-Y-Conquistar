@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 // Función para la suma de matrices
 vector<vector<int>> add(const vector<vector<int>>& A,const vector<vector<int>>& B) {
     int n = A.size();
@@ -88,12 +89,11 @@ int main() {
         for (int j = 0; j < m2; j++)
             cin >> B[i][j];
     /*Correr el algoritmo*/
+    auto start = high_resolution_clock::now();
     vector<vector<int>> C = strassen(A, B);
     /*Resultados*/
-    for (int i = 0; i < n1; i++){
-        for (int j = 0; j < m2; j++)
-            cout << C[i][j] << " ";
-        cout << endl;
-    }
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start).count();
+    cout << duration << endl;
     return 0;
 }

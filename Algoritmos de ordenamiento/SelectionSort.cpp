@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 void SelectionSort(vector<int> & arr){
     int n = arr.size();
     /* iteramos sobre n veces sobre el arreglo */
@@ -22,10 +23,11 @@ int main(){
     for (int i = 0; i < n; i++)
         cin >> arr[i];
     /*Ordenamiento*/
+    auto start = high_resolution_clock::now();
     SelectionSort(arr);
     /*Resultados*/
-    for (int c : arr)
-        cout << c << " ";
-    cout << endl;
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start).count();
+    cout << duration << endl;
     return 0;
 }

@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 int main(){
     /*Lectura del input*/
     int n;
@@ -9,10 +10,11 @@ int main(){
         cin >> arr[i];
     /*Ordenamiento*/
     /*Implementación de la librería estándar*/
+    auto start = high_resolution_clock::now();
     sort(arr.begin(),arr.end());
     /*Resultados*/
-    for (int c : arr)
-        cout << c << " ";
-    cout << endl;
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start).count();
+    cout << duration << endl;
     return 0;
 }
